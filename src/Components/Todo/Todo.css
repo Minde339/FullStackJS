@@ -1,0 +1,6 @@
+.center {
+  align-items: center;
+  justify-content: center;
+  border: solid 5px;
+  border-color: aqua;
+}
