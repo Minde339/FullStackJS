@@ -23,14 +23,14 @@ const useStyles = makeStyles((theme) => ({
      const [newDescription, setNewDescription] = useState("");
 
      useEffect(() => {
-         getUsers()
+         const data = getUsers()
+         setPosts(data.posts);
      }, [posts])
 
      const getUsers = async () => {
          try {
              let response = await axios.get(url);
              const data = response.data.data.posts;
-             setPosts(data);
          }catch (error) {
              console.log(error);
          }

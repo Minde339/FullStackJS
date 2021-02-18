@@ -9,7 +9,7 @@ import {
 import './App.css';
 import Posts from './Components/Posts/Posts';
 import Main from './Components/Main/Main';
-import Todo from './Components/Todo/Todo';
+import Companies from './Components/Companies/Companies';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
               <Link className="link" to="/">Home</Link>
             </li>
             <li>
-              <Link  className="link" to="/todo">Todo</Link>
+              <Link  className="link" to="/companies">Companies</Link>
             </li>
             <li>
               <Link  className="link" to="/posts">Posts</Link>
@@ -35,8 +35,8 @@ function App() {
           <Route path="/posts">
             <Posts />
           </Route>
-          <Route path="/todo">
-            <Todo />
+          <Route path="/companies">
+            <Companies />
           </Route>
           <Route path="/">
             <Main />
