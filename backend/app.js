@@ -4,7 +4,8 @@ require('dotenv/config');
 const app = express();
 const cors = require('cors');
 
-const postsRouter = require('./routes/postRouter');
+const postsRouter = require('./routes/posts/postRouter');
+const companiesRouter = require('./routes/companies/companiesRouter');
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
@@ -21,14 +22,8 @@ app.use((req, res, next) => {
 
 
 //Routes
+app.use('/companies', companiesRouter);
 app.use('/posts', postsRouter);
-
-app.get("/", (req, res) => {
-    res.send("We are on Home!");
-    console.log("Server started");
-})
-
-
 
 //Connect to DB
 mongoose

@@ -1,7 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
 
 const url = 'http://localhost:5000/posts/';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+  },
+}));
 
  export default function Posts() {
      const [posts, setPosts] = useState([]);
@@ -66,37 +80,54 @@ const url = 'http://localhost:5000/posts/';
 
 
      return (
-         <> 
+         <>
+             <CssBaseline />
+             <Container maxWidth="sm">
              <form>
                  <div>
                  <h2>Title</h2>
-                     <input
+                     <TextField
                          type="text"
                          placeholder="Enter Title"
                          value={newTitle}
                          onChange={(event) => setNewTitle(event.target.value)}>
-                    </input>
+                    </TextField>
                  <h2>Description</h2>
-                     <input
+                     <TextField
                          type="text"
                          placeholder="Enter description"
                          value={newDescription}
                          onChange={(event) => setNewDescription(event.target.value)}>
-                         </input>
+                         </TextField>
                      </div>
-                 <button type="submit" onClick={createPost}>Add Post</button>
-             </form>
+                 <Button
+                     color="primary"
+                     variant="contained"
+                     type="submit"
+                     onClick={createPost}>Add Post</Button>
+                 </form>
+                 
          {posts.map((post) => {
              const {_id,title,description} = post
              return (
                  <div key={_id}>
                      <h1>{title}</h1>
                      <p>{description}</p>
-                     <button type="submit" onClick={() => updatePost(_id)}>Update Post</button>
-                     <button type="submit" onClick={() => deletePost(_id)}>Delete</button>
+                     <Button color="primary"
+                         variant="contained"
+                         type="submit" onClick={() => updatePost(_id)}
+                     >Update Post
+                     </Button>
+                     <Button
+                         variant="contained"
+                         color="primary"
+                         type="submit" onClick={() => deletePost(_id)}
+                     >Delete
+                     </Button>
                 </div>
             )
-        })}
+         })}
+        </Container>     
      </>
      )
         
