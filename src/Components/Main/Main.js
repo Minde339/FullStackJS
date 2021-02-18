@@ -132,14 +132,14 @@ const [list, setList] = useState([]);
                     <StyledTableCell align="left">Butas</StyledTableCell>
                     <StyledTableCell align="left">Kliento pavadinimas</StyledTableCell>
                     <StyledTableCell align="left">Asm/Įmonės Kodas</StyledTableCell>
-                    <StyledTableCell align="right">Paslaugų planas</StyledTableCell>
-                    <StyledTableCell align="right">Mėnesinis mokestis</StyledTableCell>
-                    <StyledTableCell align="right">Ab kodas</StyledTableCell>
-                    <StyledTableCell align="right">Veiklos sritis</StyledTableCell>
-                    <StyledTableCell align="right">Segmentas</StyledTableCell>
-                    <StyledTableCell align="right">Darbuotojų kiekis</StyledTableCell>
-                    <StyledTableCell align="right">Pardavimo pajamos</StyledTableCell>
-                    <StyledTableCell align="right">Įmonės Dydis</StyledTableCell>
+                    <StyledTableCell align="left">Paslaugų planas</StyledTableCell>
+                    <StyledTableCell align="left">Mėnesinis mokestis</StyledTableCell>
+                    <StyledTableCell align="left">Ab kodas</StyledTableCell>
+                    <StyledTableCell align="left">Veiklos sritis</StyledTableCell>
+                    <StyledTableCell align="left">Segmentas</StyledTableCell>
+                    <StyledTableCell align="left">Darbuotojų kiekis</StyledTableCell>
+                    <StyledTableCell align="left">Pardavimo pajamos</StyledTableCell>
+                    <StyledTableCell align="left">Įmonės Dydis</StyledTableCell>
           </TableRow>
               </TableHead>
         <TableBody>
@@ -151,49 +151,49 @@ const [list, setList] = useState([]);
               <TableCell component="th" scope="row">
                 {item.network}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
+              <TableCell style={{ width: 160 }} align="left">
                 {item.city}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
+              <TableCell style={{ width: 160 }} align="left">
                 {item.settlement}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.street}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.houseNumber}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.flatNumber}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.name}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.servicesPlan}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.services}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.monthlyPayment}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.customerCode}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.segment}
                   </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
+                <TableCell style={{ width: 160 }} align="left">
                 {item.activityType}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.employees}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.salesIncome}
                   </TableCell>
-                  <TableCell style={{ width: 160 }} align="right">
+                  <TableCell style={{ width: 160 }} align="left">
                 {item.sizeOfCompany}
               </TableCell>
             </TableRow>
