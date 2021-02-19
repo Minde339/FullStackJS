@@ -9,6 +9,7 @@ import {
 import './App.css';
 import Main from './Components/Main/Main';
 import Home from './Components/Home/Home';
+import AddCompanyForm from './Components/AddCompanyForm/AddCompanyForm';
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
             <li>
               <Link  className="link" to="/companies">Companies</Link>
             </li>
+            <li>
+              <Link  className="link" to="/addCompanyForm">Add Company</Link>
+            </li>
           </ul>
         </nav>
 
@@ -31,6 +35,9 @@ function App() {
         <Switch>
           <Route path="/companies">
             <Main />
+          </Route>
+          <Route path="/addCompanyForm">
+            <AddCompanyForm />
           </Route>
           <Route path="/">
             <Home />

@@ -14,7 +14,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
-import { getList } from '../../Services/getCompanies';
+import { getList } from '../../Services/CompaniesServices';
 
 const useStyles1 = makeStyles((theme) => ({
   root: {
@@ -131,8 +131,8 @@ const [list, setList] = useState([]);
                     <StyledTableCell align="left">Namas</StyledTableCell>
                     <StyledTableCell align="left">Butas</StyledTableCell>
                     <StyledTableCell align="left">Kliento pavadinimas</StyledTableCell>
-                    <StyledTableCell align="left">Asm/Įmonės Kodas</StyledTableCell>
                     <StyledTableCell align="left">Paslaugų planas</StyledTableCell>
+                    <StyledTableCell align="left">Paslaugos</StyledTableCell>
                     <StyledTableCell align="left">Mėnesinis mokestis</StyledTableCell>
                     <StyledTableCell align="left">Ab kodas</StyledTableCell>
                     <StyledTableCell align="left">Veiklos sritis</StyledTableCell>
