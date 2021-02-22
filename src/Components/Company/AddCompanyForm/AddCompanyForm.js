@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { createCompany } from '../../Services/CompaniesServices';
+import { createCompany } from '../../../Services/CompaniesServices';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,7 +52,6 @@ export default function AddCompanyForm() {
             company.servicesPlan && company.services && company.monthlyPayment && company.customerCode &&
             company.segment && company.activityType && company.employees && company.salesIncome &&
             company.sizeOfCompany) {
-            console.log(company)
             createCompany(company);
         }
     }

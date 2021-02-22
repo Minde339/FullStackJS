@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -101,7 +102,8 @@ export default function CustomPaginationActionsTable() {
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-const [list, setList] = useState([]);
+  const [list, setList] = useState([]);
+  const history = useHistory();
     
     useEffect(() => {
         getList(setList);
@@ -119,6 +121,10 @@ const [list, setList] = useState([]);
     setPage(0);
   };
 
+  const openCompanyInfo = (_id) => {
+    history.push('/ModifyCompany/'+_id);
+  }
+
   return (
     <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="custom pagination table">
@@ -131,6 +137,7 @@ const [list, setList] = useState([]);
                     <StyledTableCell align="left">Namas</StyledTableCell>
                     <StyledTableCell align="left">Butas</StyledTableCell>
                     <StyledTableCell align="left">Kliento pavadinimas</StyledTableCell>
+                    <StyledTableCell align="left">As/Įmonės kodas</StyledTableCell>
                     <StyledTableCell align="left">Paslaugų planas</StyledTableCell>
                     <StyledTableCell align="left">Paslaugos</StyledTableCell>
                     <StyledTableCell align="left">Mėnesinis mokestis</StyledTableCell>
@@ -147,7 +154,7 @@ const [list, setList] = useState([]);
             ? list.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : list
                   ).map((item) => (
-            <TableRow key={item._id}>
+            <TableRow key={item._id} onClick={() => openCompanyInfo(item._id)}>
               <TableCell component="th" scope="row">
                 {item.network}
               </TableCell>
@@ -168,6 +175,9 @@ const [list, setList] = useState([]);
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="left">
                 {item.name}
+                    </TableCell>
+                <TableCell style={{ width: 160 }} align="left">
+                {item.identityCode}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="left">
                 {item.servicesPlan}

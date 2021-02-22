@@ -9,7 +9,8 @@ import {
 import './App.css';
 import Main from './Components/Main/Main';
 import Home from './Components/Home/Home';
-import AddCompanyForm from './Components/AddCompanyForm/AddCompanyForm';
+import AddCompanyForm from './Components/Company/AddCompanyForm/AddCompanyForm';
+import ModifyCompany from './Components/Company/ModifyCompany/ModifyCompany';
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route path="/addCompanyForm">
             <AddCompanyForm />
+          </Route>
+          <Route path="/modifyCompany/:id">
+            <ModifyCompany />
           </Route>
           <Route path="/">
             <Home />
