@@ -1,10 +1,9 @@
 import React from 'react';
-import VerticalBar from '../Charts/Bar';
-import HorizontalBarChart from '../Charts/HorizontalBar';
-import MultiType from '../Charts/MultiType';
-import Example from '../Charts/Pie';
-import Polar from '../Charts/Polar';
-import Polar2 from '../Charts/Polar2';
+import VerticalBar from '../Charts/SalesIncomeVerticalBar';
+import HorizontalBarChart from '../Charts/MonthyPaymentBar';
+import Example from '../Charts/SegmentPie';
+import Polar from '../Charts/ServicesDoughnut';
+import Polar2 from '../Charts/SizeofCompanyDoughnut';
 import './Home.css';
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
                 <Polar/>
             </div>
             <div className="charts">
-                <MultiType/>
                 <Polar2/>
             </div>
         </div>

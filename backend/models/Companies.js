@@ -21,7 +21,8 @@ const CompaniesSchema = mongoose.Schema({
     activityType: String,
     employees: Number,
     salesIncome: String,
-    sizeOfCompany: String
+    sizeOfCompany: String,
+    numberOfOffices: Number
 })
 
 module.exports = mongoose.model('Companies', CompaniesSchema);

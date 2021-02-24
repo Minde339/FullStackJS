@@ -5,6 +5,7 @@ const app = express();
 const cors = require('cors');
 
 const companiesRouter = require('./routes/companies/companiesRouter');
+const statsRouter = require('./routes/stats/statsRouter');
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 //Routes
 app.use('/companies', companiesRouter);
+app.use('/stats', statsRouter);
 
 //Connect to DB
 mongoose

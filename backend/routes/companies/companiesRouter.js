@@ -12,6 +12,6 @@ router.
     route('/:id')
     .get(companiesController.getOneCompany)
     .patch( companiesController.updateOneCompany)
-    .delete( companiesController. deleteCompany)
-    
+    .delete(companiesController.deleteCompany)
+   
 module.exports = router;

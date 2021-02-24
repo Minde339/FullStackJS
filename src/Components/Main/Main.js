@@ -137,7 +137,6 @@ export default function CustomPaginationActionsTable() {
                     <StyledTableCell align="left">Namas</StyledTableCell>
                     <StyledTableCell align="left">Butas</StyledTableCell>
                     <StyledTableCell align="left">Kliento pavadinimas</StyledTableCell>
-                    <StyledTableCell align="left">As/Įmonės kodas</StyledTableCell>
                     <StyledTableCell align="left">Paslaugų planas</StyledTableCell>
                     <StyledTableCell align="left">Paslaugos</StyledTableCell>
                     <StyledTableCell align="left">Mėnesinis mokestis</StyledTableCell>
@@ -176,9 +175,6 @@ export default function CustomPaginationActionsTable() {
                   <TableCell style={{ width: 160 }} align="left">
                 {item.name}
                     </TableCell>
-                <TableCell style={{ width: 160 }} align="left">
-                {item.identityCode}
-                  </TableCell>
                   <TableCell style={{ width: 160 }} align="left">
                 {item.servicesPlan}
                   </TableCell>
