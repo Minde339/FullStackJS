@@ -4,6 +4,8 @@ require('dotenv/config');
 const app = express();
 const cors = require('cors');
 
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/Errors/ErrorController');
 const companiesRouter = require('./routes/companies/companiesRouter');
 const statsRouter = require('./routes/stats/statsRouter');
 
@@ -26,11 +28,10 @@ app.use('/companies', companiesRouter);
 app.use('/stats', statsRouter);
 //Handling all unhandled routes
 app.all('*', (req, res, next) => {
-  res.status(404).json({
-    status: 'failed',
-    message: `Can't find ${req.originalUrl} on this server!`
-  })
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
 })
+
+app.use(globalErrorHandler);
 
 //Connect to DB
 mongoose
