@@ -24,6 +24,13 @@ app.use((req, res, next) => {
 //Routes
 app.use('/companies', companiesRouter);
 app.use('/stats', statsRouter);
+//Handling all unhandled routes
+app.all('*', (req, res, next) => {
+  res.status(404).json({
+    status: 'failed',
+    message: `Can't find ${req.originalUrl} on this server!`
+  })
+})
 
 //Connect to DB
 mongoose
