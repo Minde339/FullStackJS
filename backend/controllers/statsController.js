@@ -1,19 +1,28 @@
 const Company = require('../models/Companies');
 
-exports.getCompaniesByQuery = async (req, res) => {
-    try {
-        const queredCompanies = await Company.find(req.query);
-        res.json({
-            requestedAt: req.requestTime,
-            results: queredCompanies.length,
-        })
-    } catch (error) {
-        res.status(404).json({
-            status: 'failed',
-            message: error
-        })
-    }
+const catchAsync = fn => {
+    return (req, res, next) => {
+        fn(req, res, next).catch(err => next(err));
+    }  
 }
+
+
+exports.getCompaniesByQuery = catchAsync(async (req, res, next) => {
+    const queredCompanies = await Company.find(req.query);
+    res.json({
+        requestedAt: req.requestTime,
+        results: queredCompanies.length,
+    })
+})
+//     try {
+        
+//     } catch (error) {
+//         res.status(404).json({
+//             status: 'failed',
+//             message: error
+//         })
+//     }
+// })
 
 exports.getCompaniesByIncome = async (req, res) => {
     try {

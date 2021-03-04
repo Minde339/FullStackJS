@@ -52,7 +52,8 @@ export default function AddCompanyForm() {
             company.servicesPlan && company.services && company.monthlyPayment && company.customerCode &&
             company.segment && company.activityType && company.employees && company.salesIncome &&
             company.sizeOfCompany) {
-            createCompany(company);
+          createCompany(company);
+          alert("Company added successfully")
         } else {
           alert("Please add all fields");
         }

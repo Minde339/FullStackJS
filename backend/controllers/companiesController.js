@@ -1,8 +1,7 @@
 const Company = require('../models/Companies');
+const catchAsync = require('../utils/catchAsync');
 
-
-exports.createCompany = async (req, res) => {
-    try {
+exports.createCompany = catchAsync(async (req, res) => {
         const newCompany = new Company({
         district: req.body.title,
         network: req.body.network,
@@ -24,13 +23,7 @@ exports.createCompany = async (req, res) => {
     });
         const savedCompany = await newCompany.save();
         res.json(savedCompany);
-    } catch (error) {
-        res.status(404).json({
-            status: 'failed',
-            message: error
-        });
-    }
-};
+});
 
 exports.getAllCompanies = async (req, res) => {
     try {
