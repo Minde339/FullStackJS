@@ -1,5 +1,7 @@
 const Company = require('../models/Companies');
 const catchAsync = require('../utils/catchAsync');
+const appError = require('../utils/appError');
+const AppError = require('../utils/appError');
 
 exports.createCompany = catchAsync(async (req, res) => {
         const newCompany = new Company({
@@ -43,55 +45,49 @@ exports.getAllCompanies = async (req, res) => {
     }
 }
 
-exports.getOneCompany = async (req, res) => {
-    try {
-        const oneCompany = await Company.findById(req.params.id);
+exports.getOneCompany = catchAsync(async (req, res, next) => {
+    const oneCompany = await Company.findById(req.params.id);
+    if (!oneCompany) {
+        return next(new appError('No company found with that ID', 404));
+    } else {
         res.status(200).json({
         requestedAt: req.requestTime,
         data: {
             oneCompany
         }
     })
-    } catch (error) {
-        res.status(404).json({
-            status: 'failed',
-            message: error
-        })
     }
-} 
+    
+}); 
 
 
-exports.updateOneCompany = async (req, res) => {
-    try {
-        const updatedCompany = await Company.findByIdAndUpdate(req.params.id, req.body, {
+exports.updateOneCompany = catchAsync( async (req, res, next) => {
+    const updatedCompany = await Company.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true
-        });
+    });
+    if (!updatedCompany) {
+        return next(new AppError('ID of this company is not existing'), 404)
+    } else {
         res.status(200).json({
             status: 'success',
             data: {
                 company: updatedCompany
             }
         });
-    } catch (error) {
-        res.status(404).json({
-            status: 'failed',
-            message: error
-        });
-    };
-}
+    }
+        
+})
 
 
-exports.deleteCompany = async (req, res) => {
-    try {
-        await Company.findByIdAndDelete(req.params.id);
+exports.deleteCompany = catchAsync(async (req, res, next) => {
+    const company = await Company.findByIdAndDelete(req.params.id);
+    if (!company) {
+        return next(new appError('This company ID is not existing'));
+    } else {
         res.status(200).json({
             message: 'Succesfully deleted Item'
         });
-    } catch (error) {
-        res.status(404).json({
-            status: 'failed',
-            message: error
-        });
-    };
-}
+    }
+        
+})
