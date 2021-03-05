@@ -1,5 +1,6 @@
 const { Message } = require('@material-ui/icons');
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const validator = require('validator');
 
 const UserSchema = mongoose.Schema({
@@ -18,7 +19,8 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: [true, 'please provide password'],
-        minlength: 8
+        minlength: 8,
+        select:false
     },
     passwordConfirm: {
         type: String,
@@ -32,6 +34,20 @@ const UserSchema = mongoose.Schema({
         }
     }
 });
+
+UserSchema.pre('save', async function (next) {
+    // Only run this function if password was modified
+    if (!this.isModified('password')) return next();
+    // Hash password + salt 
+    this.password = await bcrypt.hash(this.password, 12);
+    // Delete password confirm to avoid aditional DB data;
+    this.passwordConfirm = undefined;
+    next();
+});
+
+UserSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
+    return await bcrypt.compare(candidatePassword, userPassword)
+}
 
 const User = mongoose.model('User', UserSchema);
 
