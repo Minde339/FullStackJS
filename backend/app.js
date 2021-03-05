@@ -8,6 +8,7 @@ const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/Errors/ErrorController');
 const companiesRouter = require('./routes/companies/companiesRouter');
 const statsRouter = require('./routes/stats/statsRouter');
+const usersRouter = require('./routes/users/usersRoute');
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 //Routes
 app.use('/companies', companiesRouter);
 app.use('/stats', statsRouter);
+app.use('/users', usersRouter);
 //Handling all unhandled routes
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404))
