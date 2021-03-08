@@ -1,11 +1,12 @@
 const express = require('express');
 const companiesController = require('../../controllers/companiesController');
+const authController = require('../../controllers/authController');
 
 
 const router = express();
 
 router.route('/')
-    .get(companiesController.getAllCompanies)
+    .get(authController.protect, companiesController.getAllCompanies)
     .post(companiesController.createCompany)
 
 router.
