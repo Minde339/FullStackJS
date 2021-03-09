@@ -12,7 +12,9 @@ router.route('/')
 router.
     route('/:id')
     .get(companiesController.getOneCompany)
-    .patch( companiesController.updateOneCompany)
-    .delete(companiesController.deleteCompany)
+    .patch(companiesController.updateOneCompany)
+    .delete(authController.protect,
+        authController.restrictTo('admin'),
+        companiesController.deleteCompany)
    
 module.exports = router;
