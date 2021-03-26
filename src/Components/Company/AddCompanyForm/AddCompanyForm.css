@@ -1,0 +1,5 @@
+.container {
+  margin-left: 3rem;
+  display: flex;
+  justify-content: space-between;
+}

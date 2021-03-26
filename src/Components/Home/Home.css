@@ -1,5 +1,17 @@
 .charts {
+  width: 60%;
   display: flex;
-  width: 400px;
-  height: 200px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.charts > div {
+  margin-top: 2rem;
+}
+.navigation {
+  width: 30%;
+}
+.layout {
+  display: flex;
+  border-color: rebeccapurple;
 }

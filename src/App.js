@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import './App.css';
-import Main from './Components/Main/Main';
-import Home from './Components/Home/Home';
-import AddCompanyForm from './Components/Company/AddCompanyForm/AddCompanyForm';
-import ModifyCompany from './Components/Company/ModifyCompany/ModifyCompany';
-
+import "./App.css";
+import Main from "./Components/Main/Main";
+import Home from "./Components/Home/Home";
+import AddCompanyForm from "./Components/Company/AddCompanyForm/AddCompanyForm";
+import ModifyCompany from "./Components/Company/ModifyCompany/ModifyCompany";
 
 function App() {
   return (
@@ -20,13 +14,19 @@ function App() {
         <nav className="nav">
           <ul>
             <li>
-              <Link className="link" to="/">Home</Link>
+              <Link className="link" to="/">
+                Pagrindinis
+              </Link>
             </li>
             <li>
-              <Link  className="link" to="/companies">Companies</Link>
+              <Link className="link" to="/companies">
+                Įmonės
+              </Link>
             </li>
             <li>
-              <Link  className="link" to="/addCompanyForm">Add Company</Link>
+              <Link className="link" to="/addCompanyForm">
+                Pridėti įmonę
+              </Link>
             </li>
           </ul>
         </nav>
@@ -51,6 +51,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;
